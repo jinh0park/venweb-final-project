@@ -22,6 +22,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', include('dateapp.urls')),
-    path('', RedirectView.as_view(url='/main/')),
+    path('dateapp/', include('dateapp.urls')),
+    path('', RedirectView.as_view(url='/dateapp/')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

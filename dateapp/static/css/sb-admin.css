@@ -6985,7 +6985,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #2ECCFA !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10577,9 +10577,10 @@ body {
 
 #wrapper #content-wrapper {
   overflow-x: hidden;
-  width: 100%;
+  width: calc(100% - 225px);
   padding-top: 1rem;
   padding-bottom: 80px;
+  padding-left: 1rem;
 }
 
 .scroll-to-top {
@@ -10670,8 +10671,9 @@ body {
 
 .sidebar {
   width: 90px !important;
-  background-color: #212529;
+  background-color: #E0F2F7;
   min-height: calc(100vh - 56px);
+  box-shadow: #aaaaaa 3px 0 6px;
 }
 
 .sidebar .nav-item:last-child {
@@ -10719,7 +10721,7 @@ body {
   overflow: hidden;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 0px) {
   .sidebar {
     width: 225px !important;
   }
@@ -10897,7 +10899,7 @@ footer.sticky-footer .copyright {
   font-size: 0.8rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 0px) {
   footer.sticky-footer {
     width: calc(100% - 225px);
   }
@@ -10907,7 +10909,7 @@ body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 0px) {
   body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }

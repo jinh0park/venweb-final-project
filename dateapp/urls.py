@@ -8,4 +8,5 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
     path('forgot-password', views.forgot_password, name='forgot-password'),
+    path('content/spot/<int:pk>', views.SpotDetailView.as_view(), name='spot-detail')
 ]

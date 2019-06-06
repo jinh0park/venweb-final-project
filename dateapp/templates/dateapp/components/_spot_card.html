@@ -1,0 +1,14 @@
+<div class="spot-card" onclick="javascript:window.location.href='{{ spot.get_absolute_url }}'">
+    <div class="spot-thumbnail" style="background-image: url('{{ spot.picture.url }}')"></div>
+    <div class="spot-overview">
+        <table>
+            <tr>
+                <td>
+                    <span class="spot-name">{{ spot.name }}</span><br>
+                    <span class="spot-ns">{{ spot.near_station.station_nm }}역 {{ spot.near_station.line_num }}호선</span>
+                </td>
+                <td class="spot-rating">{{ spot.get_rating }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

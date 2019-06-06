@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Profile(models.Model):
@@ -24,6 +25,16 @@ class Spot(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_rating(self):
+        cnt = self.review_set.count()
+        if cnt == 0:
+            return "평점 없음"
+        else:
+            return sum([review.rating for review in self.review_set.all()]) / cnt
+
+    def get_absolute_url(self):
+        return reverse('spot-detail', args=[self.id])
 
 
 class Review(models.Model):
