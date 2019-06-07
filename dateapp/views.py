@@ -11,7 +11,7 @@ def welcome(request):
 
 @login_required
 def index(request):
-    spots = Spot.objects.all()[:8]
+    spots = Spot.objects.all()
     return render(request, 'dateapp/index.html', {'spots': spots})
 
 
