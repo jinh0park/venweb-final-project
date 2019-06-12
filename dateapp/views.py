@@ -6,8 +6,8 @@ from .models import Spot
 
 
 def welcome(request):
-    spots = Spot.objects.all()[:5]
-    return render(request, 'dateapp/welcome.html', {'spots':spots})
+    spots = Spot.objects.all()[:2]
+    return render(request, 'dateapp/welcome.html', {'spots': spots})
 
 
 @login_required
@@ -16,7 +16,6 @@ def index(request):
     return render(request, 'dateapp/index.html', {'spots': spots})
 
 
-@login_required
 def register(request):
     return render(request, 'dateapp/register.html')
 
