@@ -20,7 +20,7 @@ class Spot(models.Model):
     location_x = models.FloatField(blank=True, null=True)
     location_y = models.FloatField(blank=True, null=True)
     near_station = models.ForeignKey('Station', on_delete=models.SET_NULL, null=True, blank=True)
-    like = models.IntegerField(default=0)
+    like = models.IntegerField(default = 0)
     picture = models.ImageField(blank=True, null=True)
 
     def __str__(self):
@@ -35,8 +35,7 @@ class Spot(models.Model):
 
     def get_absolute_url(self):
         return reverse('spot-detail', args=[self.id])
-
-
+    
 class Review(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     spot = models.ForeignKey('Spot', on_delete=models.CASCADE)

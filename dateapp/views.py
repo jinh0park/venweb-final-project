@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login as django_login, logout as django_logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.views.generic import DetailView
+from django.views.generic.base import View
+from django.http import HttpResponseForbidden
+from urllib.parse import urlparse
 from .models import Spot
 
 
@@ -15,7 +18,6 @@ def index(request):
     return render(request, 'dateapp/index.html', {'spots': spots})
 
 
-@login_required
 def register(request):
     return render(request, 'dateapp/register.html')
 
@@ -48,3 +50,8 @@ def forgot_password(request):
 class SpotDetailView(DetailView):
     model = Spot
     context_object_name = 'spot'
+
+    def get_context_data(self, **kwargs):
+        context = super(SpotDetailView, self).get_context_data(**kwargs)        
+        context['spot_list'] = Spot.objects.all()
+        return context
