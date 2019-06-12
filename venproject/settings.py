@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dateapp.apps.DateappConfig'
+    'dateapp.apps.DateappConfig',
+    'disqus',
+    'django.contrib.sites'
 ]
 
 MIDDLEWARE = [
@@ -124,3 +126,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = '/dateapp/login'
+
+DISQUS_WEBSITE_SHORTNAME ='venwebfinal'
+SITE_ID =1

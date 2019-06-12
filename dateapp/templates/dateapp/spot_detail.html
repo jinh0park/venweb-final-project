@@ -1,6 +1,38 @@
 {% extends 'dateapp/components/_base.html' %}
 
-
+{% block sidebar %}
+<ul class="sidebar navbar-nav">
+    {% for names in super.get_context_data %}
+    <li>
+        {{names.name}}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
 
 {% block content %}
+    <div class ="row">
+        <div class="col-md-1"></div>
+        <div clsas="col-md-9 panel panel-default">
+            <div class ="col-md-6">
+                <p><img src ="{{object.picture.url}}"></p>
+            </div>
+            <div class = "col-md-9">
+                <h1>{{object.name}}</h1>
+            </div>
+            <div class = "col-md-8 panel panel-default">
+                <p>{{object.description}}</p>
+            </div>
+
+        </div>        
+    </div> 
+    <div class="row">
+        <div class= "col-md-1"></div>
+        <div class="col-md-9" panel panel-default>
+            {% load disqus_tags %}
+            {% disqus_show_comments %}
+        </div>
+    </div>
+        
 {% endblock %}
+
