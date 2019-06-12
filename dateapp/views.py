@@ -6,7 +6,8 @@ from .models import Spot
 
 
 def welcome(request):
-    return render(request, 'dateapp/welcome.html')
+    spots = Spot.objects.all()[:5]
+    return render(request, 'dateapp/welcome.html', {'spots':spots})
 
 
 @login_required

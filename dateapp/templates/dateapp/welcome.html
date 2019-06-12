@@ -66,29 +66,45 @@
 {% block sidebar %}
 {% endblock %}
 
-{% block content %}
+{% block content-0 %}
     <div class="container">
-        <div class="jumbotron">
-            <h1>DATE ROAD</h1>
-            <p>세상의 모든 연인들을 위해, DATE ROAD</p>
-            <p>
-                {% if not request.user.is_authenticated %}
-                <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">가입하기</a>
-                <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">로그인</a>
-                {% endif %}
-                <a class="btn btn-info btn-lg" href="{% url 'index' %}" role="button">데이트 장소 검색하기</a>
-            </p>
+        <div class="row">
+            <div class="jumbotron" style="width: 100%">
+                <h1>DATE ROAD</h1>
+                <p>세상의 모든 연인들을 위해, DATE ROAD</p>
+                <p>
+                    {% if not request.user.is_authenticated %}
+                        <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">가입하기</a>
+                        <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">로그인</a>
+                    {% endif %}
+                    <a class="btn btn-info btn-lg" href="{% url 'index' %}" role="button">데이트 장소 검색하기</a>
+                </p>
+            </div>
         </div>
+        <h3>오늘의 추천 데이트 코스</h3>
+        <div class="row">
+            <div class="col-md-12">
+                {% for spot in spots %}
+
+                    {% include 'dateapp/components/_spot_card.html' with spot=spot %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+
     </div>
 
 {% endblock %}
 
 {% block footer %}
-      <footer class="sticky-footer" style="width: 100%">
+    <footer class="sticky-footer" style="width: 100%">
         <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
-          </div>
+            <div class="copyright text-center my-auto">
+                <span>Copyright © Your Website 2019</span>
+            </div>
         </div>
-      </footer>
+    </footer>
 {% endblock %}
