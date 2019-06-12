@@ -2,10 +2,27 @@
 
 {% block sidebar %}
 <ul class="sidebar navbar-nav">
-    {% for names in super.get_context_data %}
-    <li>
-        {{names.name}}
-    </li>
+    <div style = "margin-left: 30px; margin-bottom:10px; margin-top:10px; font-size: 18px;">
+        <최신 데이트 스팟>
+    </div>   
+
+    {% for names in spots %}
+        {% if names.id|add:4 > spots|length %}
+            <li>
+                <div class="spot-card" onclick="javascript:window.location.href='{{ names.get_absolute_url }}'">
+                    <div class="spot-thumbnail" style="background-image: url('{{ names.picture.url }}')"></div>
+                        <div class="spot-overview">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <span class="spot-name">{{ names.name }}</span><br>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                </div>
+            </li>
+        {% endif %}
     {% endfor %}
 </ul>
 {% endblock %}

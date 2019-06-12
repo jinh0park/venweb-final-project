@@ -52,6 +52,7 @@ class SpotDetailView(DetailView):
     context_object_name = 'spot'
 
     def get_context_data(self, **kwargs):
-        context = super(SpotDetailView, self).get_context_data(**kwargs)        
-        context['spot_list'] = Spot.objects.all()
+        context = super().get_context_data(**kwargs)
+        context['spots'] = Spot.objects.all()
         return context
+
