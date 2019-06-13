@@ -1,6 +1,38 @@
 {% extends 'dateapp/components/_base.html' %}
 
+{% block sidebar %}
+    <ul class="sidebar navbar-nav">
+        <li class="nav-item">
+            <b>정렬</b>
+            <hr style="border: 1px solid #0174DF;width: 100%;margin-top: 8px">
+        </li>
+        <li class="nav-item">
+            <div class="btn-group" role="group" style="width: 100%">
+                <button type="button" class="btn btn-default" style="width: 33%">거리</button>
+                <button type="button" class="btn btn-default" style="width: 33%">평점</button>
+                <button type="button" class="btn btn-default" style="width: 34%">가나다</button>
+            </div>
+        </li>
+        <li class="nav-item"><br></li>
+        <li class="nav-item">
+            <b>필터</b>
+            <hr style="border: 1px solid #0174DF;width: 100%;margin-top: 8px">
+        </li>
+        <li class="nav-item">
+            <div class="btn-group-vertical" role="group" style="width: 100%">
+                <button type="button" class="btn btn-default">1호선</button>
+                <button type="button" class="btn btn-default">2호선</button>
+                <button type="button" class="btn btn-default">3호선</button>
+                <button type="button" class="btn btn-default">4호선</button>
+            </div>
+            <hr style="border: 1px solid #0174DF;width: 100%;margin-top: 8px">
+        </li>
+        <li>
+            <button class="btn btn-primary" style="width: 100%">조건 검색</button>
+        </li>
 
+    </ul>
+{% endblock %}
 
 {% block content %}
     {% for spot in spots %}

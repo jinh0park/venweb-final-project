@@ -1,16 +1,18 @@
 {% extends 'dateapp/components/_base.html' %}
 
 {% block sidebar %}
-<ul class="sidebar navbar-nav">
-    <div style = "margin-left: 30px; margin-bottom:10px; margin-top:10px; font-size: 18px;">
-        <최신 데이트 스팟>
-    </div>   
+    <ul class="sidebar navbar-nav" style="padding:10px">
+        <button class="btn btn-link" onclick="window.location.href='{% url 'index' %}'">
+            <b><span class="glyphicon glyphicon-menu-left"></span> 데이트 스팟 전체 보기</b>
+        </button>
+        <hr style="border: 1px solid #0174DF;width: 100%">
+        <b>최신 데이트 스팟</b>
 
-    {% for names in spots %}
-        {% if names.id|add:4 > spots|length %}
-            <li>
-                <div class="spot-card" onclick="javascript:window.location.href='{{ names.get_absolute_url }}'">
-                    <div class="spot-thumbnail" style="background-image: url('{{ names.picture.url }}')"></div>
+        {% for names in spots %}
+            {% if names.id|add:4 > spots|length %}
+                <li>
+                    <div class="spot-card" onclick="javascript:window.location.href='{{ names.get_absolute_url }}'">
+                        <div class="spot-thumbnail" style="background-image: url('{{ names.picture.url }}')"></div>
                         <div class="spot-overview">
                             <table>
                                 <tr>
@@ -20,36 +22,34 @@
                                 </tr>
                             </table>
                         </div>
-                </div>
-            </li>
-        {% endif %}
-    {% endfor %}
-</ul>
+                    </div>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 {% endblock %}
 
 {% block content %}
-    <div class ="row">
-        <div class="col-md-1"></div>
-        <div clsas="col-md-9 panel panel-default">
-            <div class ="col-md-6">
-                <p><img src ="{{object.picture.url}}"></p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 panel panel-default text-center">
+                <img class="spot-content-image" src="{{ object.picture.url }}">
             </div>
-            <div class = "col-md-9">
-                <h1>{{object.name}}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ object.name }}</h1>
+                <p>{{ object.description }}</p>
             </div>
-            <div class = "col-md-8 panel panel-default">
-                <p>{{object.description}}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12" panel panel-default>
+                {% load disqus_tags %}
+                {% disqus_show_comments %}
             </div>
-
-        </div>        
-    </div> 
-    <div class="row">
-        <div class= "col-md-1"></div>
-        <div class="col-md-9" panel panel-default>
-            {% load disqus_tags %}
-            {% disqus_show_comments %}
         </div>
     </div>
-        
+
+
 {% endblock %}
 

@@ -10674,7 +10674,7 @@ body {
   width: 90px !important;
   background-color: #E0F2F7;
   min-height: calc(100vh - 56px);
-  box-shadow: #aaaaaa 3px 0 6px;
+  border-radius: 3px;
 }
 
 .sidebar .nav-item:last-child {
