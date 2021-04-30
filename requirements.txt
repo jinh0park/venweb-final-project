@@ -9,7 +9,7 @@ opencv-contrib-python==4.1.0.25
 Pillow==6.0.0
 pyasn1==0.4.4
 pytz==2019.1
-rsa==3.4.2
+rsa==4.7
 s3transfer==0.1.13
 tensorflow-estimator-2.0-preview==1.14.0.dev2019051000
 wincertstore==0.2
